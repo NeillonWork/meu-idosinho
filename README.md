@@ -1,17 +1,16 @@
-1. Planejamento Inicial
-Funcionalidades Principais
-Lista de Compras
+1. Planejamento Inicial</br>
+<strong>Funcionalidades Principais</strong>
+<p>Lista de Compras</p>
+[] Adicionar itens
+[] Marcar itens como comprados
+[] Remover itens
 
-Adicionar itens
-Marcar itens como comprados
-Remover itens
-Lembretes de Medicamentos
+<p>Lembretes de Medicamentos</p>
+[] Adicionar medicamentos com horários
+[] Notificações para lembrar de tomar os remédios
+[] Histórico de medicamentos tomados
 
-Adicionar medicamentos com horários
-Notificações para lembrar de tomar os remédios
-Histórico de medicamentos tomados
-Módulo de Finanças
-
+<p>Módulo de Finanças</p>
 Adicionar contas a pagar
 Notificações para lembrar de pagar as contas
 Histórico de pagamentos
