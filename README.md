@@ -1,4 +1,4 @@
-1. Planejamento Inicial</br>
+<p><strong>1. Planejamento Inicial</strong></p>
 <strong>Funcionalidades Principais</strong>
 <p><strong>Lista de Compras</strong></p>
 [] Adicionar itens</br>
@@ -14,22 +14,24 @@
 Adicionar contas a pagar
 Notificações para lembrar de pagar as contas
 Histórico de pagamentos
-2. Design da Interface
+
+<p><strong>2. Design da Interface
 Simplicidade e Acessibilidade
 Ícones grandes e intuitivos
 Fontes grandes e legíveis
-Navegação fácil e direta
-3. Desenvolvimento
+Navegação fácil e direta</strong></p>
+
+<p><strong>3. Desenvolvimento
 Estrutura do Projeto
 React Native
-Utilizaremos React Native para desenvolvimento multi-plataforma (iOS e Android)</br></br>
+Utilizaremos React Native para desenvolvimento multi-plataforma (iOS e Android)</strong></p>
 
 <p><strong>Dependências</strong></p>
-react-navigation: Para navegação entre telas</br>
-styled-components: Para estilização</br>
-@expo-google-fonts/roboto: Para fontes legíveis</br>
-expo-notifications: Para gerenciar notificações</br>
-Outras dependências conforme necessário</br></br>
+-- react-navigation: Para navegação entre telas</br>
+-- styled-components: Para estilização</br>
+-- @expo-google-fonts/roboto: Para fontes legíveis</br>
+-- expo-notifications: Para gerenciar notificações</br>
+-- Outras dependências conforme necessário</br></br>
 
 <p>npx expo install react-native-svg</p>
 <p>npx expo install @expo-google-fonts/roboto expo-font</p>
