@@ -1,7 +1,6 @@
 import styled from "styled-components/native";
 import {
   CaretLeft,
-  UserCircleGear,
   UserCirclePlus,
 } from "phosphor-react-native";
 import { TouchableOpacity } from "react-native";
