@@ -1,3 +1,4 @@
+import { ButtonIcon } from "@components/ButtonIcon";
 import { Container, ButtonTypeStyleProps, Title } from "./styles";
 import { TouchableOpacityProps } from "react-native";
 

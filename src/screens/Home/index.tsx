@@ -1,25 +1,36 @@
-import { useState } from "react";
-import { FlatList } from "react-native";
-
 import { Header } from "@components/Header";
-import { Container } from "./styles";
+import { Container, Form } from "./styles";
 import { Highlights } from "@components/Highlights";
-import { GroupCard } from "@components/GroupCard";
 import { ButtonsHome } from "@components/ButtonsHome";
+import { ButtonIcon } from "@components/ButtonIcon";
 
 export function Home() {
   return (
     <Container>
       <Header />
       <Highlights
-        title="Bem-vindo ao Meu Idosinho!"
-        subtitle="Clique em um dos botões abaixo para iniciar"
+        title="Meu Idosinho!"
+        subtitle="Clique em um dos botões abaixo para iniciar!"
       />
+      <Form>
+        <ButtonIcon icon="shopping-cart" />
+        <ButtonsHome title="Lista de Compras" />
+      </Form>
 
-      <ButtonsHome style={{ marginBottom: 12 }} title="Lista de Compras" />
-      <ButtonsHome style={{ marginBottom: 12 }} title="Lembretes de Medicamentos" />
-      <ButtonsHome style={{ marginBottom: 12 }} title="Finanças" />
-      <ButtonsHome type="SECONDARY" style={{ marginBottom: 12 }} title="Personalizado" />
+      <Form>
+        <ButtonIcon icon="medication" />
+        <ButtonsHome title="Lembretes de Medicamentos" />
+      </Form>
+
+      <Form>
+        <ButtonIcon icon="attach-money" />
+        <ButtonsHome title="Finanças" />
+      </Form>
+
+      <Form>
+        <ButtonIcon icon="add" />
+        <ButtonsHome title="Lista personalizada" />
+      </Form>
     </Container>
   );
 }

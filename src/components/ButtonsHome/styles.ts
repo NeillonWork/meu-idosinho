@@ -16,7 +16,7 @@ export const Container = styled(TouchableOpacity)<Props>`
   border-radius: 6px;
 
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   background-color: ${({ theme, type }) =>
     type === "PRIMARY" ? theme.COLORS.GRAY_600 : theme.COLORS.RED_DARK};
