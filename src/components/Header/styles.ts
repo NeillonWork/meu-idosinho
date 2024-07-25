@@ -11,20 +11,20 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
 `;
-{
-  /*
-export const Logo = styled.Image`
-  width: 46px;
-  height: 55px;
-`;
-*/
-}
 
+ 
+  export const LogoIcon = styled.Image`
+  width: 56px;
+  height: 80px;
+`;
+
+
+ /*
 export const Logo = styled(UserCirclePlus).attrs(({ theme }) => ({
   size: 56,
   weight: `thin`,
   color: theme.COLORS.GRAY_100,
-}))``;
+}))``;*/
 
 export const IconButton = styled(TouchableOpacity)`
   flex: 1;

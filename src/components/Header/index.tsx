@@ -1,5 +1,5 @@
-import { Container, Logo, BackIcon, IconButton } from "./styles";
-// import logoImg from "@assets/logo.png";
+import { Container,  BackIcon, IconButton, LogoIcon } from "./styles";
+import logoImg from "@assets/logo.png";
 
 type Props = {
   showBackIcon?: boolean;
@@ -13,8 +13,8 @@ export function Header({ showBackIcon = false }: Props) {
           <BackIcon />
         </IconButton>
       )}
-      <Logo />
-      {/*<Logo source={logoImg} />*/}
+     {/* <Logo />*/}
+     <LogoIcon source={logoImg} />
     </Container>
   );
 }
