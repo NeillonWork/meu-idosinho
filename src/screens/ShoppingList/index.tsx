@@ -9,7 +9,7 @@ import { FlatList, Text } from "react-native";
 import { ListShoppinADD } from "@components/ListShoppingAdd";
 
 export function ShoppingList() {
- // const [addListCount, setAddListCount] = useState(["Items: ", "Valor: "]);
+  // const [addListCount, setAddListCount] = useState(["Items: ", "Valor: "]);
   const [listBuy, setListBuy] = useState<string[]>([
     "Pao",
     "Carne moida",
@@ -34,7 +34,26 @@ export function ShoppingList() {
           type="PRIMARY"
         />
       </Form>
-<Text>{listBuy.length}</Text>
+
+      {/*INICIO - COMPONENTIZAR ESTES INDICADORES*/}
+      <Form
+        style={{
+          justifyContent: "space-between",
+          borderWidth: 1,
+          padding: 12,
+          backgroundColor: "#333",
+          marginBottom: 20,
+        }}
+      >
+        <Text style={{ color: "#fff", fontSize: 30 }}>
+          Items: {listBuy.length}
+        </Text>
+        <Text style={{ color: "#fff", fontSize: 30 }}>
+          Custo: {listBuy.length}
+        </Text>
+      </Form>
+        {/*FIM - COMPONENTIZAR ESTES INDICADORES*/}
+
       <FlatList
         data={listBuy}
         keyExtractor={(item) => item}

@@ -6,5 +6,11 @@ type Props = TextInputProps & {
 };
 
 export function Input({ title, ...rest }: Props) {
-  return (<InputButton placeholder={title} {...rest}></InputButton>)
+  return (
+  <InputButton 
+  placeholder={title} 
+  {...rest} 
+  />
+
+ )
 }

@@ -13,9 +13,9 @@ export const Container = styled(TouchableOpacity)<Props>`
   min-height: 56px;
   max-height: 56px;
 
-  border-radius: 6px;
   align-items: center;
   justify-content: center;
+  border-radius: 6px;
 
   background-color: ${({ theme, type }) => {
     switch (type) {

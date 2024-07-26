@@ -8,6 +8,8 @@ export const Container = styled.View`
   justify-content: center;
   padding: 12px;
 
+  margin: 0 6px;
+
   border-radius: 6px;
 
   ${({ theme }) => css`
@@ -22,4 +24,9 @@ export const Title = styled.Text`
     font-family: ${theme.FONT_FAMILY.REGULAR};
     font-size: ${theme.FONT_SIZE.LG}px;
   `}
+`;
+
+export const Form = styled.View`
+  flex-direction: row;
+  align-items: center;
 `;
