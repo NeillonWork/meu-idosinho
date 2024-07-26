@@ -1,6 +1,6 @@
 import { StatusBar } from "react-native";
 
-import { Home } from "@screens/Home";
+import { ShoppingList } from "@screens/ShoppingList";
 import theme from "src/theme";
 import { ThemeProvider } from "styled-components";
 import {
@@ -20,7 +20,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontLoaded ? <Home /> : <Loading />}
+      {fontLoaded ? <ShoppingList /> : <Loading />}
     </ThemeProvider>
   );
 }
