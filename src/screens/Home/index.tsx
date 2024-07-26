@@ -1,10 +1,11 @@
-import { Header } from "@components/Header";
+import { useNavigation } from "@react-navigation/native";
+
 import { Container, Form } from "./styles";
+import { Header } from "@components/Header";
 import { Highlights } from "@components/Highlights";
 import { ButtonsHome } from "@components/ButtonsHome";
 import { ButtonIcon } from "@components/ButtonIcon";
-import { useNavigation } from "@react-navigation/native";
-import { useCallback } from "react";
+
 
 export function Home() {
   const navigation = useNavigation();
@@ -30,7 +31,7 @@ export function Home() {
         <ButtonIcon icon="medication" />
         <ButtonsHome
           title="Lembretes de Medicamentos"
-          onPress={() => navigation.navigate("MedicationReminder")}
+          onPress={() => navigation.navigate("medicationReminder")}
         />
       </Form>
 
@@ -38,7 +39,7 @@ export function Home() {
         <ButtonIcon icon="attach-money" />
         <ButtonsHome
           title="Finanças"
-          onPress={() => navigation.navigate("Finance")}
+          onPress={() => navigation.navigate("finance")}
         />
       </Form>
 
