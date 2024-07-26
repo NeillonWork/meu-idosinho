@@ -21,7 +21,7 @@ export function Home() {
       {/* Refatorar: melhorar logica para diminuir a quantidade de função anonima aberta*/}
       <Form>
         <ButtonIcon icon="shopping-cart" />
-        <ButtonsHome
+        <ButtonsHome 
           title="Lista de Compras"
           onPress={() => navigation.navigate("shoppingList")}
         />
