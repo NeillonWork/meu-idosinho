@@ -2,7 +2,7 @@ import { Container, SubTitle, Title } from "./styles";
 
 type Props = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
 };
 
 export function ListEmpty({ title, subtitle }: Props) {

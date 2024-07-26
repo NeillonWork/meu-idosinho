@@ -1,20 +1,39 @@
+import { useState } from "react";
+import { Alert, FlatList, Text } from "react-native";
+
 import { Header } from "@components/Header";
-import { Container, Form } from "./styles";
 import { Highlights } from "@components/Highlights";
 import { Input } from "@components/Input";
 import { ButtonActions } from "@components/ButtonActios";
 import { ButtonIcon } from "@components/ButtonIcon";
-import { useState } from "react";
-import { FlatList, Text } from "react-native";
-import { ListShoppinADD } from "@components/ListShoppingAdd";
+import { CardShoppinList } from "@components/CardShoppinList";
+import { ListEmpty } from "@components/ListEmpty";
+
+import { Container, Form } from "./styles";
 
 export function ShoppingList() {
-  // const [addListCount, setAddListCount] = useState(["Items: ", "Valor: "]);
-  const [listBuy, setListBuy] = useState<string[]>([
-    "Pao",
-    "Carne moida",
-    "Repolho",
-  ]);
+  const [addItem, setAddItem] = useState("");
+  const [listBuy, setListBuy] = useState<string[]>([]);
+
+  // ADD ITEM
+  function handleAddItem() {
+    if (listBuy.includes(addItem) || addItem==="") {
+      Alert.alert("Cadastro", `ATENÇÃO: Item em branco, ou já cadastrado!`)
+      return;
+    }
+
+    setListBuy((prevList) => [...prevList, addItem]);
+    setAddItem("");
+  }
+  //DELETE ITEM
+  function handlDeleteItem(remove: string) {
+    setListBuy((prevList) => prevList.filter((oldList) => oldList !== remove));
+  }
+
+  //CHECKEDITEM
+  function handleCheckedItem(checked: string) {
+    console.log(checked);
+  }
 
   return (
     <Container>
@@ -28,10 +47,15 @@ export function ShoppingList() {
           title="Digite o item aqui"
           autoCorrect={false}
           style={{ marginEnd: 5 }}
+          value={addItem}
+          onChangeText={setAddItem}
         />
         <ButtonActions
-          options={<ButtonIcon icon="add-circle-outline" />}
+          options={
+            <ButtonIcon icon="add-circle-outline" onPress={handleAddItem} />
+          }
           type="PRIMARY"
+          onPress={handleAddItem}
         />
       </Form>
 
@@ -41,36 +65,40 @@ export function ShoppingList() {
           justifyContent: "space-between",
           borderWidth: 1,
           padding: 12,
-          backgroundColor: "#333",
+          backgroundColor: "#02161053",
           marginBottom: 20,
         }}
       >
-        <Text style={{ color: "#fff", fontSize: 30 }}>
+        <Text style={{ color: "#fff", fontSize: 20 }}>
           Items: {listBuy.length}
         </Text>
-        <Text style={{ color: "#fff", fontSize: 30 }}>
+        <Text style={{ color: "#fff", fontSize: 20 }}>
           Custo: {listBuy.length}
         </Text>
       </Form>
-        {/*FIM - COMPONENTIZAR ESTES INDICADORES*/}
+      {/*FIM - COMPONENTIZAR ESTES INDICADORES*/}
 
       <FlatList
         data={listBuy}
         keyExtractor={(item) => item}
         renderItem={({ item }) => (
-          <Form>
-            <ButtonActions
-              options={<ButtonIcon icon="add-circle-outline" />}
-              type="TERTIARY"
-            />
-            <ListShoppinADD title={item} />
-
-            <ButtonActions
-              options={<ButtonIcon icon="delete" />}
-              type="SECONDARY"
-            />
-          </Form>
+          <CardShoppinList
+            key={item}
+            title={item}
+            checkItem={() => handleCheckedItem(item)}
+            onRemove={() => handlDeleteItem(item)}
+          />
         )}
+        ListEmptyComponent={
+          <ListEmpty
+            title="Lista de compras vazia"
+            subtitle="Digite o item dentro da caixa, após clique no botão de `+ adicionar`"
+          />
+        }
+        contentContainerStyle={[
+          { paddingBottom: 100 },
+          listBuy.length === 0 && { flex: 1 },
+        ]}
       />
     </Container>
   );
