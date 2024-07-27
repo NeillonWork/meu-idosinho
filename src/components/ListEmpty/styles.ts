@@ -1,3 +1,4 @@
+import { ClipboardText } from "phosphor-react-native";
 import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
@@ -21,4 +22,11 @@ export const SubTitle = styled.Text`
     color: ${theme.COLORS.GRAY_300};
   `}
   text-align:center;
+`;
+
+export const ListEmptIcon = styled(ClipboardText).attrs(({ theme }) => ({
+  size: 70,
+  weight: "light",
+  color: theme.COLORS.GRAY_600,
+}))`
 `;

@@ -1,27 +1,60 @@
-import { ButtonIcon } from "@components/ButtonIcon";
-import { Container, Delete, Form, Title } from "./styles";
+import {
+  CircleIcon,
+  CircleIconChecked,
+  Container,
+  Form,
+  FormChecked,
+  Title,
+  TitleChecked,
+  TrashButton,
+  TrashIcon,
+} from "./styles";
+import { ButtonActions } from "@components/ButtonActios";
 
 type Props = {
   title: string;
   checkItem: () => void;
   onRemove: () => void;
+  checkedOn: boolean;
 };
 
-export function CardShoppinList({ title, checkItem, onRemove }: Props) {
+export function CardShoppinList({
+  title,
+  checkItem,
+  onRemove,
+  checkedOn,
+}: Props) {
   return (
     <Container>
-      <Form>
-        <ButtonIcon
-          icon="check-circle-outline"
-          type="PRIMARY"
-          onPress={checkItem}
-        />
-        <Title>{title}</Title>
+      {checkedOn ? (
+        <FormChecked>
+          <ButtonActions
+            type="PRIMARY"
+            options={<CircleIconChecked />}
+            onPress={checkItem}
+            style={{ backgroundColor: "transparent" }}
+          />
+          <TitleChecked>{title}</TitleChecked>
+        </FormChecked>
+      ) : (
+        <Form>
+          <ButtonActions
+            type="PRIMARY"
+            options={<CircleIcon />}
+            onPress={checkItem}
+            style={{ backgroundColor: "transparent" }}
+          />
+          <Title>{title}</Title>
+        </Form>
+      )}
 
-        <Delete>
-          <ButtonIcon icon="delete-outline" type="PRIMARY" onPress={onRemove} />
-        </Delete>
-      </Form>
+      <TrashButton>
+        <ButtonActions
+          type="SECONDARY"
+          options={<TrashIcon />}
+          onPress={onRemove}
+        />
+      </TrashButton>
     </Container>
   );
 }

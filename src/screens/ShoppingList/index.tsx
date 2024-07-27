@@ -9,16 +9,17 @@ import { ButtonIcon } from "@components/ButtonIcon";
 import { CardShoppinList } from "@components/CardShoppinList";
 import { ListEmpty } from "@components/ListEmpty";
 
-import { Container, Form } from "./styles";
+import { Container, Form, ListEmptIcon } from "./styles";
 
 export function ShoppingList() {
   const [addItem, setAddItem] = useState("");
   const [listBuy, setListBuy] = useState<string[]>([]);
+  const [itemChecked, setItemChecked] = useState<Record<string, boolean>>({});
 
   // ADD ITEM
   function handleAddItem() {
-    if (listBuy.includes(addItem) || addItem==="") {
-      Alert.alert("Cadastro", `ATENÇÃO: Item em branco, ou já cadastrado!`)
+    if (listBuy.includes(addItem) || addItem === "") {
+      Alert.alert("Cadastro", `ATENÇÃO: Item em branco, ou já cadastrado!`);
       return;
     }
 
@@ -32,7 +33,12 @@ export function ShoppingList() {
 
   //CHECKEDITEM
   function handleCheckedItem(checked: string) {
-    console.log(checked);
+    setItemChecked((prevList) => ({
+      ...prevList,
+      [checked]: !prevList[checked],
+    }));
+
+    console.log(itemChecked);
   }
 
   return (
@@ -60,22 +66,28 @@ export function ShoppingList() {
       </Form>
 
       {/*INICIO - COMPONENTIZAR ESTES INDICADORES*/}
-      <Form
-        style={{
-          justifyContent: "space-between",
-          borderWidth: 1,
-          padding: 12,
-          backgroundColor: "#02161053",
-          marginBottom: 20,
-        }}
-      >
-        <Text style={{ color: "#fff", fontSize: 20 }}>
-          Items: {listBuy.length}
-        </Text>
-        <Text style={{ color: "#fff", fontSize: 20 }}>
-          Custo: {listBuy.length}
-        </Text>
-      </Form>
+
+      {listBuy.length === 0 ? (
+        <Form />
+      ) : (
+        <Form
+          style={{
+            justifyContent: "space-between",
+            borderBottomWidth: 1,
+            padding: 12,
+            borderColor: "#333",
+            marginBottom: 20,
+          }}
+        >
+          <Text style={{ color: "#fff", fontSize: 20 }}>
+            Items: {listBuy.length}
+          </Text>
+          <Text style={{ color: "#fff", fontSize: 20 }}>
+            Custo: {listBuy.length}
+          </Text>
+        </Form>
+      )}
+
       {/*FIM - COMPONENTIZAR ESTES INDICADORES*/}
 
       <FlatList
@@ -87,12 +99,15 @@ export function ShoppingList() {
             title={item}
             checkItem={() => handleCheckedItem(item)}
             onRemove={() => handlDeleteItem(item)}
+            checkedOn={itemChecked[item]}
           />
         )}
         ListEmptyComponent={
-          <ListEmpty
-            title="Lista de compras vazia"
-            subtitle="Digite o item dentro da caixa, após clique no botão de `+ adicionar`"
+          
+            <ListEmpty
+              title="Lista de compras vazia"
+              subtitle="Digite o item dentro da caixa, após clique no botão de `+ adicionar`"
+  
           />
         }
         contentContainerStyle={[

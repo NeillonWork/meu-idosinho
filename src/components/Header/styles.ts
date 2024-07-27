@@ -1,8 +1,5 @@
 import styled from "styled-components/native";
-import {
-  CaretLeft,
-  UserCirclePlus,
-} from "phosphor-react-native";
+import { CaretLeft } from "phosphor-react-native";
 import { TouchableOpacity } from "react-native";
 
 export const Container = styled.View`
@@ -12,19 +9,10 @@ export const Container = styled.View`
   align-items: center;
 `;
 
- 
-  export const LogoIcon = styled.Image`
+export const LogoIcon = styled.Image`
   width: 56px;
   height: 80px;
 `;
-
-
- /*
-export const Logo = styled(UserCirclePlus).attrs(({ theme }) => ({
-  size: 56,
-  weight: `thin`,
-  color: theme.COLORS.GRAY_100,
-}))``;*/
 
 export const IconButton = styled(TouchableOpacity)`
   flex: 1;
