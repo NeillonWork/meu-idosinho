@@ -28,6 +28,14 @@ export function ShoppingList() {
   }
   //DELETE ITEM
   function handlDeleteItem(remove: string) {
+    if (itemChecked[remove] === true) {
+      Alert.alert(
+        "Deletar",
+        "Item marcado não pode ser deletado!"
+      );
+      return;
+    }
+
     setListBuy((prevList) => prevList.filter((oldList) => oldList !== remove));
   }
 
