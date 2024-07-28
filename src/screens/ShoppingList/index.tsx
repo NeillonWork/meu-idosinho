@@ -9,7 +9,7 @@ import { ButtonIcon } from "@components/ButtonIcon";
 import { CardShoppinList } from "@components/CardShoppinList";
 import { ListEmpty } from "@components/ListEmpty";
 
-import { Container, Form, ListEmptIcon } from "./styles";
+import { Container, Form } from "./styles";
 
 export function ShoppingList() {
   const [addItem, setAddItem] = useState("");
@@ -37,8 +37,6 @@ export function ShoppingList() {
       ...prevList,
       [checked]: !prevList[checked],
     }));
-
-    console.log(itemChecked);
   }
 
   return (
@@ -103,11 +101,9 @@ export function ShoppingList() {
           />
         )}
         ListEmptyComponent={
-          
-            <ListEmpty
-              title="Lista de compras vazia"
-              subtitle="Digite o item dentro da caixa, após clique no botão de `+ adicionar`"
-  
+          <ListEmpty
+            title="Lista de compras vazia"
+            subtitle="Digite o item dentro da caixa, após clique no botão de `+ adicionar`"
           />
         }
         contentContainerStyle={[

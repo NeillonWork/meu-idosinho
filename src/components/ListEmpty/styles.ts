@@ -27,6 +27,6 @@ export const SubTitle = styled.Text`
 export const ListEmptIcon = styled(ClipboardText).attrs(({ theme }) => ({
   size: 70,
   weight: "light",
-  color: theme.COLORS.GRAY_600,
+  color: theme.COLORS.GRAY_400,
 }))`
 `;
