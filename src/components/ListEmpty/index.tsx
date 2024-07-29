@@ -1,4 +1,4 @@
-import { Container, ListEmptIcon, SubTitle, Title } from "./styles";
+import { Container, ListEmptyIcon, SubTitle, Title } from "./styles";
 
 type Props = {
   title: string;
@@ -8,7 +8,7 @@ type Props = {
 export function ListEmpty({ title, subtitle }: Props) {
   return (
     <Container>
-      <ListEmptIcon />
+      <ListEmptyIcon />
       <Title>{title}</Title>
       <SubTitle>{subtitle}</SubTitle>
     </Container>

@@ -16,6 +16,11 @@ export function ShoppingList() {
   const [listBuy, setListBuy] = useState<string[]>([]);
   const [itemChecked, setItemChecked] = useState<Record<string, boolean>>({});
 
+  // Função para contar quantos itens estão marcados
+  const countCheckedItems = () => {
+    return Object.values(itemChecked).filter((checked) => checked).length;
+  };
+
   // ADD ITEM
   function handleAddItem() {
     if (listBuy.includes(addItem) || addItem === "") {
@@ -29,10 +34,7 @@ export function ShoppingList() {
   //DELETE ITEM
   function handlDeleteItem(remove: string) {
     if (itemChecked[remove] === true) {
-      Alert.alert(
-        "Deletar",
-        "Item marcado não pode ser deletado!"
-      );
+      Alert.alert("Deletar", "Item marcado não pode ser deletado!");
       return;
     }
 
@@ -80,16 +82,45 @@ export function ShoppingList() {
           style={{
             justifyContent: "space-between",
             borderBottomWidth: 1,
-            padding: 12,
             borderColor: "#333",
             marginBottom: 20,
           }}
         >
-          <Text style={{ color: "#fff", fontSize: 20 }}>
-            Items: {listBuy.length}
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 14,
+              borderWidth: 1,
+              padding: 4,
+              backgroundColor: "#333",
+              borderRadius: 6,
+            }}
+          >
+            T.Lista: {listBuy.length}
           </Text>
-          <Text style={{ color: "#fff", fontSize: 20 }}>
-            Custo: {listBuy.length}
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 14,
+              borderWidth: 1,
+              padding: 4,
+              backgroundColor: "#333",
+              borderRadius: 6,
+            }}
+          >
+            No carrinho: {countCheckedItems()}
+          </Text>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 14,
+              borderWidth: 1,
+              padding: 4,
+              backgroundColor: "#333",
+              borderRadius: 6,
+            }}
+          >
+            Valor: R$ 243,00
           </Text>
         </Form>
       )}

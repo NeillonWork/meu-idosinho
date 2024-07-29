@@ -11,7 +11,7 @@ export const Form = styled.View`
   flex: 1;
   flex-direction: row;
   align-items: center;
-  min-height: 56px;
+  min-height: 48px;
   border-radius: 6px;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_200};
@@ -22,7 +22,7 @@ export const Title = styled.Text`
 
   ${({ theme }) => css`
     font-family: ${theme.FONT_FAMILY.REGULAR};
-    font-size: ${theme.FONT_SIZE.LG}px;
+    font-size: ${theme.FONT_SIZE.MD}px;
   `}
 `;
 export const CircleIcon = styled(CircleDashed).attrs(({ theme }) => ({
@@ -35,10 +35,10 @@ export const FormChecked = styled.View`
   flex: 1;
   flex-direction: row;
   align-items: center;
-  min-height: 56px;
+  min-height: 48px;
   border-radius: 6px;
 
-  background-color: ${({ theme }) => theme.COLORS.GRAY_600};
+  background-color: ${({ theme }) => theme.COLORS.GRAY_500};
 `;
 
 export const TitleChecked = styled.Text`
@@ -49,7 +49,7 @@ export const TitleChecked = styled.Text`
 
   ${({ theme }) => css`
     font-family: ${theme.FONT_FAMILY.REGULAR};
-    font-size: ${theme.FONT_SIZE.LG}px;
+    font-size: ${theme.FONT_SIZE.MD}px;
     color: ${theme.COLORS.GREEN_700};
   `}
 `;

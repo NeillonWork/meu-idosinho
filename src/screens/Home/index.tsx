@@ -6,7 +6,6 @@ import { Highlights } from "@components/Highlights";
 import { ButtonsHome } from "@components/ButtonsHome";
 import { ButtonIcon } from "@components/ButtonIcon";
 
-
 export function Home() {
   const navigation = useNavigation();
 

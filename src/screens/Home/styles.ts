@@ -15,11 +15,9 @@ export const Form = styled.View`
 
   justify-content: center;
   align-items: center;
-  
+
   padding: 0 12px;
   margin-bottom: 12px;
 
   background-color: ${({ theme }) => theme.COLORS.GREEN_700};
-
-
 `;

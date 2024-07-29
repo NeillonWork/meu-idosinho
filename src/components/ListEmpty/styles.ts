@@ -9,7 +9,7 @@ export const Container = styled.View`
 
 export const Title = styled.Text`
   ${({ theme }) => css`
-    font-size: ${theme.FONT_SIZE.XL}px;
+    font-size: ${theme.FONT_SIZE.LG}px;
     font-family: ${theme.FONT_FAMILY.BOLD};
     color: ${theme.COLORS.GREEN_700};
   `}
@@ -17,15 +17,15 @@ export const Title = styled.Text`
 
 export const SubTitle = styled.Text`
   ${({ theme }) => css`
-    font-size: ${theme.FONT_SIZE.MD}px;
+    font-size: ${theme.FONT_SIZE.SM}px;
     font-family: ${theme.FONT_FAMILY.REGULAR};
     color: ${theme.COLORS.GRAY_300};
   `}
   text-align:center;
 `;
 
-export const ListEmptIcon = styled(ClipboardText).attrs(({ theme }) => ({
-  size: 70,
+export const ListEmptyIcon = styled(ClipboardText).attrs(({ theme }) => ({
+  size: 50,
   weight: "light",
   color: theme.COLORS.GRAY_400,
 }))`

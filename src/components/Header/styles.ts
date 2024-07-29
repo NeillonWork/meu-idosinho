@@ -11,8 +11,8 @@ export const Container = styled(SafeAreaView)`
 `;
 
 export const LogoIcon = styled.Image`
-  width: 56px;
-  height: 80px;
+  width: 40px;
+  height: 52px;
 `;
 
 export const IconButton = styled(TouchableOpacity)`
