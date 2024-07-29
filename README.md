@@ -47,8 +47,9 @@ Utilizaremos React Native para desenvolvimento multi-plataforma (iOS e Android)<
 <p>npx expo install react-native-screens react-native-safe-area-context -- --legacy-peer-deps</p>
 
 <p>Estrategia de navegação:</p>
-
 <p>npm install @react-navigation/native-stack --legacy-peer-deps</p>
 
+<p>Async Storage</p>
+<p>npx expo install @react-native-async-storage/async-storage -- --legacy-peer-deps</p>
 
 <p><a href="https://github.com/duongdev/phosphor-react-native">phosphor-react-native</a></p>
