@@ -63,7 +63,7 @@
 - [] Histórico de medicamentos tomados</br></br>
 
 <strong>#Módulo de Finanças</strong></br>
-- [x]Criar Screen</br>
+- [x] Criar Screen</br> 
 - [] Adicionar contas a pagar</br>
 - [] Notificações para lembrar de pagar as contas</br>
 - [] Histórico de pagamentos</br></br>
