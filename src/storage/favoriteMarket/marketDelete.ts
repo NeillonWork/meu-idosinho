@@ -11,6 +11,9 @@ export async function marketDelete(remove: string) {
     const data = JSON.stringify(filteredMarkets);
 
     await AsyncStorage.setItem(MARKETFAV_COLLECTION, data);
+
+    // limpar teste
+   // await AsyncStorage.clear(MARKETFAV_COLLECTION)
   } catch (error) {
     console.error("Error deleting market:", error);
   }

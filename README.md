@@ -17,14 +17,10 @@
 
 <table border>
     <tr>
-        <td>Lista vazia</td>
-        <td>Tarefas adicionadas</td>
-        <td>Tarefas concluidas</td>
+        <td>Telas Versão - Beta</td>
     </tr>
     <tr>
-        <td><img src="./image/ReadmeVazia.jpg"/></td>
-        <td><img src="./image/ReadmeTarefas.jpg" /></td>
-        <td><img src="./image/ReadmeTarefasConcluidas.jpg" /></td>
+        <td><img src=".src/assets/ReadmeTelas.jpg"/></td>
     </tr>
 </table>
 
