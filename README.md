@@ -4,7 +4,7 @@
 <a href="#imagens">Imagens </a> -
 <a href="#sobre">Sobre </a> -
 <a href="#Planejamento">Planejamento </a> -
-<a href="#DesigndaInterface">Design da Interface </a> -
+<a href="#Design da Interface">Design da Interface </a> -
 <a href="#Dependencias">Depêndencias</a> -
 <a href="#autor">Autor </a>
 </p>
@@ -68,7 +68,7 @@
 - [] Notificações para lembrar de pagar as contas</br>
 - [] Histórico de pagamentos</br></br>
 
-# DesigndaInterface
+# Design da Interface
 
 <p><strong>2. Design da Interface
 Simplicidade e Acessibilidade
