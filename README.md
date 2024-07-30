@@ -1,6 +1,5 @@
 <p align="center"> React-Native teams... em desenvolvimento</p>
 
-
 <p align="center">
 <a href="#imagens">Imagens </a> -
 <a href="#sobre">Sobre </a> -
@@ -30,12 +29,13 @@
 </table>
 
 # Sobre
+
 <p>
 <strong>Meu Idosinho</strong> é um aplicativo intuitivo e acessível, projetado para ajudar idosos a gerenciar suas tarefas diárias com a assistência de um smartphone. Com uma interface amigável e simplificada, o aplicativo garante que os usuários mais velhos possam navegar facilmente e realizar suas atividades sem complicações.
 </p>
 
-
 # Planejamento
+
 <p><strong>1. Planejamento Inicial</strong></p>
 <strong>Funcionalidades Principais</strong>
 <p><strong>Lista de Compras</strong></p>
@@ -68,6 +68,7 @@
 - [] Histórico de pagamentos</br></br>
 
 # DesigndaInterface
+
 <p><strong>2. Design da Interface
 Simplicidade e Acessibilidade
 Ícones grandes e intuitivos
@@ -80,6 +81,7 @@ React Native
 Utilizaremos React Native para desenvolvimento multi-plataforma (iOS e Android)</strong></p>
 
 # Dependencias
+
 <p><strong>Dependências</strong></p>
 -- react-navigation: Para navegação entre telas</br>
 -- styled-components: Para estilização</br>
@@ -87,26 +89,18 @@ Utilizaremos React Native para desenvolvimento multi-plataforma (iOS e Android)<
 -- expo-notifications: Para gerenciar notificações</br>
 -- react-navigation/native:Tipo <strong>STACK</strong> Para navegabilidade
 -- Outras dependências conforme necessário</br></br>
-
-<p>npx expo install react-native-svg</p>
-<p>npx expo install @expo-google-fonts/roboto expo-font</p>
-<p>npm install --save phosphor-react-native</p>
-<p>npm install styled-components --legacy-peer-deps</p>
-<p>npm install --save-dev babel-plugin-module-resolver --legacy-peer-deps</p>
-
-<p><strong>Navegação</strong></p>
-<p>Core de navegação</p>
-
-<p>npm install @react-navigation/native --legacy-peer-deps</p>
-<p>npx expo install react-native-screens react-native-safe-area-context -- --legacy-peer-deps</p>
-
-<p>Estrategia de navegação:</p>
-<p>npm install @react-navigation/native-stack --legacy-peer-deps</p>
-
-<p>Async Storage</p>
-<p>npx expo install @react-native-async-storage/async-storage -- --legacy-peer-deps</p>
-
-<p><a href="https://github.com/duongdev/phosphor-react-native">phosphor-react-native</a></p>
+<ul>
+    <li>npx expo install react-native-svg</li>
+    <li>npx expo install @expo-google-fonts/roboto expo-font</li>
+    <li>npm install --save phosphor-react-native</li>
+    <li>npm install styled-components --legacy-peer-deps</li>
+    <li>npm install --save-dev babel-plugin-module-resolver --legacy-peer-deps</li>
+    <li>npm install @react-navigation/native --legacy-peer-deps</li>
+    <li>npx expo install react-native-screens react-native-safe-area-context -- --legacy-peer-deps</li>
+    <li>npm install @react-navigation/native-stack --legacy-peer-deps</li>
+    <li>npx expo install @react-native-async-storage/async-storage -- --legacy-peer-deps</li>
+    <li><a href="https://github.com/duongdev/phosphor-react-native">phosphor-react-native</a></li>
+</ul>
 
 # Autor
 
