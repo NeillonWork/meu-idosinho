@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Alert, FlatList, Text } from "react-native";
+import { useRoute } from "@react-navigation/native";
 
 import { Header } from "@components/Header";
 import { Highlights } from "@components/Highlights";
@@ -11,7 +12,14 @@ import { ListEmpty } from "@components/ListEmpty";
 
 import { Container, Form } from "./styles";
 
+type RouterParams = {
+  newFavoriteMarket: string;
+};
+
 export function ShoppingList() {
+  const route = useRoute();
+  const { newFavoriteMarket } = route.params as RouterParams;
+
   const [addItem, setAddItem] = useState("");
   const [listBuy, setListBuy] = useState<string[]>([]);
   const [itemChecked, setItemChecked] = useState<Record<string, boolean>>({});
@@ -54,7 +62,7 @@ export function ShoppingList() {
       <Header showBackIcon />
       <Highlights
         title="Minhas compras"
-        subtitle="Crie sua lista de compras, e acompanhe os gastos."
+        subtitle="Crie sua lista de compras."
       />
       <Form>
         <Input
@@ -74,7 +82,7 @@ export function ShoppingList() {
       </Form>
 
       {/*INICIO - COMPONENTIZAR ESTES INDICADORES*/}
-
+      <Text style={{ marginBottom: 5 }}>{newFavoriteMarket}</Text>
       {listBuy.length === 0 ? (
         <Form />
       ) : (

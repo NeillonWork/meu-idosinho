@@ -22,7 +22,7 @@ export function Home() {
         <ButtonIcon icon="shopping-cart" />
         <ButtonsHome 
           title="Lista de Compras"
-          onPress={() => navigation.navigate("shoppingList")}
+          onPress={() => navigation.navigate("newshoppingList")}
         />
       </Form>
 

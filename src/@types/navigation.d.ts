@@ -5,6 +5,7 @@ export declare global {
       shoppingList: undefined;
       medicationReminder: undefined;
       finance: undefined;
+      newshoppingList: undefined;
     }
   }
 }
