@@ -1,19 +1,33 @@
 <p><strong>1. Planejamento Inicial</strong></p>
 <strong>Funcionalidades Principais</strong>
 <p><strong>Lista de Compras</strong></p>
-[] Adicionar itens</br>
-[] Marcar itens como comprados</br>
-[] Remover itens</br></br>
+[x] Criar Screen
+[x] Adicionar itens</br>
+[x] Marcar itens como comprados</br>
+[x] Remover itens</br></br>
+[] Idicadores da Lista dinamicos
+[] Componentizar - Idicadores da Lista dinamicos(...analisar se necessario)
+[] Refatorar buttons</br></br>
+[]  Refatorar button ADD do input</br></br></br></br>
+
+<p><strong>Lista de Compras - Market Favoritos</strong></p>
+[x] Criar Screen
+[x] Lista de Mercados favoritos</br></br>
+[x] Lista de Mercados favoritos - Adicionar ao storage </br></br>
+[x] Lista de Mercados favoritos - Remover ao storage </br></br>
+[] Salvar e vincular MarketFavorito com a lista criada em `Lista de Compras`
 
 <p><strong>Lembretes de Medicamentos</strong></p>
+[x] Criar Screen
 [] Adicionar medicamentos com horários</br>
 [] Notificações para lembrar de tomar os remédios</br>
 [] Histórico de medicamentos tomados</br></br>
 
 <p><strong>Módulo de Finanças</strong></p>
-Adicionar contas a pagar
-Notificações para lembrar de pagar as contas
-Histórico de pagamentos
+[x] Criar Screen
+[] Adicionar contas a pagar
+[] Notificações para lembrar de pagar as contas
+[] Histórico de pagamentos
 
 <p><strong>2. Design da Interface
 Simplicidade e Acessibilidade
