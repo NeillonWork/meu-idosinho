@@ -1,34 +1,73 @@
+<p align="center"> React-Native teams... em desenvolvimento</p>
+
+
+<p align="center">
+<a href="#imagens">Imagens </a> -
+<a href="#sobre">Sobre </a> -
+<a href="#Planejamento">Planejamento </a> -
+<a href="#DesigndaInterface">Design da Interface </a> -
+<a href="#Dependencias">Depêndencias</a> -
+<a href="#autor">Autor </a>
+</p>
+
+# Imagens
+
+<p>
+- Etapas de uso do App.</br>
+</p>
+
+<table border>
+    <tr>
+        <td>Lista vazia</td>
+        <td>Tarefas adicionadas</td>
+        <td>Tarefas concluidas</td>
+    </tr>
+    <tr>
+        <td><img src="./image/ReadmeVazia.jpg"/></td>
+        <td><img src="./image/ReadmeTarefas.jpg" /></td>
+        <td><img src="./image/ReadmeTarefasConcluidas.jpg" /></td>
+    </tr>
+</table>
+
+# Sobre
+<p>
+<strong>Meu Idosinho</strong> é um aplicativo intuitivo e acessível, projetado para ajudar idosos a gerenciar suas tarefas diárias com a assistência de um smartphone. Com uma interface amigável e simplificada, o aplicativo garante que os usuários mais velhos possam navegar facilmente e realizar suas atividades sem complicações.
+</p>
+
+
+# Planejamento
 <p><strong>1. Planejamento Inicial</strong></p>
 <strong>Funcionalidades Principais</strong>
 <p><strong>Lista de Compras</strong></p>
-[x] Criar Screen</br>
-[x] Adicionar itens</br>
-[x] Marcar itens como comprados</br>
-[x] Remover itens</br>
-[] Idicadores da Lista dinamicos</br>
-[] Componentizar - Idicadores da Lista dinamicos(...analisar se necessario)</br></br>
-[] Refatorar buttons</br>
-[]  Refatorar button ADD do input</br></br>
+- [x] Criar Screen</br>
+- [x] Adicionar itens</br>
+- [x] Marcar itens como comprados</br>
+- [x] Remover itens</br>
+- [] Indicadores da Lista dinamicos</br>
+- [] Componentizar - Idicadores da Lista dinamicos(...analisar se necessario)</br></br>
+- [] Refatorar buttons</br>
+- [] Refatorar button ADD do input</br></br>
 
 <p><strong>Lista de Compras - Market Favoritos</strong></p>
-[x] Criar Screen</br>
-[x] Lista de Mercados favoritos</br>
-[x] Lista de Mercados favoritos - Adicionar ao storage </br>
-[x] Lista de Mercados favoritos - Remover ao storage </br>
-[] Salvar e vincular MarketFavorito com a lista criada em `Lista de Compras`</br></br>
+- [x] Criar Screen</br>
+- [x] Lista de Mercados favoritos</br>
+- [x] Lista de Mercados favoritos - Adicionar ao storage </br>
+- [x] Lista de Mercados favoritos - Remover ao storage </br>
+- [] Salvar e vincular MarketFavorito com a lista criada em `Lista de Compras`</br></br>
 
 <p><strong>Lembretes de Medicamentos</strong></p>
-[x] Criar Screen</br>
-[] Adicionar medicamentos com horários</br>
-[] Notificações para lembrar de tomar os remédios</br>
-[] Histórico de medicamentos tomados</br></br>
+- [x] Criar Screen</br>
+- [] Adicionar medicamentos com horários</br>
+- [] Notificações para lembrar de tomar os remédios</br>
+- [] Histórico de medicamentos tomados</br></br>
 
 <p><strong>Módulo de Finanças</strong></p>
-[x] Criar Screen</br>
-[] Adicionar contas a pagar</br>
-[] Notificações para lembrar de pagar as contas</br>
-[] Histórico de pagamentos</br></br>
+- [x] Criar Screen</br>
+- [] Adicionar contas a pagar</br>
+- [] Notificações para lembrar de pagar as contas</br>
+- [] Histórico de pagamentos</br></br>
 
+# DesigndaInterface
 <p><strong>2. Design da Interface
 Simplicidade e Acessibilidade
 Ícones grandes e intuitivos
@@ -40,6 +79,7 @@ Estrutura do Projeto
 React Native
 Utilizaremos React Native para desenvolvimento multi-plataforma (iOS e Android)</strong></p>
 
+# Dependencias
 <p><strong>Dependências</strong></p>
 -- react-navigation: Para navegação entre telas</br>
 -- styled-components: Para estilização</br>
@@ -67,3 +107,9 @@ Utilizaremos React Native para desenvolvimento multi-plataforma (iOS e Android)<
 <p>npx expo install @react-native-async-storage/async-storage -- --legacy-peer-deps</p>
 
 <p><a href="https://github.com/duongdev/phosphor-react-native">phosphor-react-native</a></p>
+
+# Autor
+
+<p>
+Desenvolvido por: :nerd_face: <a href="https://github.com/NeillonWork"><strong> NeillonWork</strong>
+</p>
