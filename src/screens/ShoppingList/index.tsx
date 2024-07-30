@@ -10,7 +10,15 @@ import { ButtonIcon } from "@components/ButtonIcon";
 import { CardShoppinList } from "@components/CardShoppinList";
 import { ListEmpty } from "@components/ListEmpty";
 
-import { Container, Form } from "./styles";
+import {
+  Container,
+  FaveMarketCard,
+  FaveMarketIndicators,
+  FaveMarketIndicatorsTitle,
+  FaveMarketSubTitle,
+  FaveMarketTitle,
+  Form,
+} from "./styles";
 
 type RouterParams = {
   newFavoriteMarket: string;
@@ -82,57 +90,35 @@ export function ShoppingList() {
       </Form>
 
       {/*INICIO - COMPONENTIZAR ESTES INDICADORES*/}
-      <Text style={{ marginBottom: 5 }}>{newFavoriteMarket}</Text>
-      {listBuy.length === 0 ? (
-        <Form />
-      ) : (
-        <Form
-          style={{
-            justifyContent: "space-between",
-            borderBottomWidth: 1,
-            borderColor: "#333",
-            marginBottom: 20,
-          }}
-        >
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 14,
-              borderWidth: 1,
-              padding: 4,
-              backgroundColor: "#333",
-              borderRadius: 6,
-            }}
-          >
-            T.Lista: {listBuy.length}
-          </Text>
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 14,
-              borderWidth: 1,
-              padding: 4,
-              backgroundColor: "#333",
-              borderRadius: 6,
-            }}
-          >
-            No carrinho: {countCheckedItems()}
-          </Text>
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 14,
-              borderWidth: 1,
-              padding: 4,
-              backgroundColor: "#333",
-              borderRadius: 6,
-            }}
-          >
-            Valor: R$ 243,00
-          </Text>
-        </Form>
-      )}
 
+      <FaveMarketCard>
+        <FaveMarketTitle>
+          Favoritos:
+          <FaveMarketSubTitle> {newFavoriteMarket}</FaveMarketSubTitle>
+        </FaveMarketTitle>
+        {listBuy.length === 0 ? (
+          <Form />
+        ) : (
+          <FaveMarketIndicators
+            style={{
+              justifyContent: "space-between",
+              borderBottomWidth: 1,
+              borderColor: "#333",
+              marginBottom: 20,
+            }}
+          >
+            <FaveMarketIndicatorsTitle>
+              T.Lista: {listBuy.length}
+            </FaveMarketIndicatorsTitle>
+            <FaveMarketIndicatorsTitle>
+              No carrinho: {countCheckedItems()}
+            </FaveMarketIndicatorsTitle>
+            <FaveMarketIndicatorsTitle>
+              Valor: R$ 243,00
+            </FaveMarketIndicatorsTitle>
+          </FaveMarketIndicators>
+        )}
+      </FaveMarketCard>
       {/*FIM - COMPONENTIZAR ESTES INDICADORES*/}
 
       <FlatList

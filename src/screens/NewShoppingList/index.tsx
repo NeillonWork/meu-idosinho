@@ -33,11 +33,14 @@ export function NewShoppingList() {
 
   //DELETE
   async function HandleDeleteFavorite(remove: string) {
+
+    await marketDelete(remove);
+    
     setNewFavoriteMarketList((prevList) =>
       prevList.filter((oldList) => oldList != remove)
     );
 
-    await marketDelete(remove);
+    
   }
 
   //RECUPERANDO LISTA STORAGE
