@@ -37,8 +37,9 @@
 # Planejamento
 
 <p><strong>1. Planejamento Inicial</strong></p>
-<strong>Funcionalidades Principais</strong>
-<p><strong>Lista de Compras</strong></p>
+<p><strong>Funcionalidades Principais</strong></p>
+
+<strong>#Lista de Compras</strong></br>
 - [x] Criar Screen</br>
 - [x] Adicionar itens</br>
 - [x] Marcar itens como comprados</br>
@@ -48,21 +49,21 @@
 - [] Refatorar buttons</br>
 - [] Refatorar button ADD do input</br></br>
 
-<p><strong>Lista de Compras - Market Favoritos</strong></p>
+<strong>#Lista de Compras - Market Favoritos</strong></br>
 - [x] Criar Screen</br>
 - [x] Lista de Mercados favoritos</br>
 - [x] Lista de Mercados favoritos - Adicionar ao storage </br>
 - [x] Lista de Mercados favoritos - Remover ao storage </br>
 - [] Salvar e vincular MarketFavorito com a lista criada em `Lista de Compras`</br></br>
 
-<p><strong>Lembretes de Medicamentos</strong></p>
+<strong>#Lembretes de Medicamentos</strong></br>
 - [x] Criar Screen</br>
 - [] Adicionar medicamentos com horários</br>
 - [] Notificações para lembrar de tomar os remédios</br>
 - [] Histórico de medicamentos tomados</br></br>
 
-<p><strong>Módulo de Finanças</strong></p>
-- [x] Criar Screen</br>
+<strong>#Módulo de Finanças</strong></br>
+- [x]Criar Screen</br>
 - [] Adicionar contas a pagar</br>
 - [] Notificações para lembrar de pagar as contas</br>
 - [] Histórico de pagamentos</br></br>
