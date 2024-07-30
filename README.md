@@ -20,7 +20,7 @@
         <td>Telas Versão - Beta</td>
     </tr>
     <tr>
-        <td><img src=".src/assets/ReadmeTelas.jpg"/></td>
+        <td><img src="./src/assets/ReadmeTelas.jpg"/></td>
     </tr>
 </table>
 
