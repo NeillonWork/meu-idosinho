@@ -6,16 +6,17 @@ import {
   TrashIcon,
 } from "./styles";
 import { ButtonActions } from "@components/ButtonActios";
+import { TouchableOpacityProps } from "react-native";
 
-type Props = {
+type Props = TouchableOpacityProps & {
   title: string;
   onRemove: () => void;
 };
 
-export function CardNewShoppinList({ title, onRemove }: Props) {
+export function CardNewShoppinList({ title, onRemove, ...rest }: Props) {
   return (
-    <Container>
-      <ButtonCard>
+    <Container {...rest}>
+      <ButtonCard {...rest}>
         <ButtonTitle>{title}</ButtonTitle>
       </ButtonCard>
 

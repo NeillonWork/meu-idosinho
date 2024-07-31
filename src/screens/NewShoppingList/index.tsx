@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { FlatList } from "react-native";
+import { Alert, FlatList } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 
 import { marketCreate } from "@storage/favoriteMarket/marketCreate";
@@ -12,6 +12,7 @@ import { Button } from "@components/Buttons";
 import { Input } from "@components/Input";
 import { Container } from "./styles";
 import { marketDelete } from "@storage/favoriteMarket/marketDelete";
+import { AppError } from "src/utils/AppError";
 
 export function NewShoppingList() {
   const navigation = useNavigation();
@@ -24,23 +25,30 @@ export function NewShoppingList() {
   //ADD
   async function HandleNewFavorite() {
     try {
+      if (newFavoriteMarket.trim().length === 0) {
+        Alert.alert("Novo estabelecimeto:", "Informe o local a ser salvo!");
+
+        return;
+      }
+
       await marketCreate(newFavoriteMarket);
       navigation.navigate("shoppingList", { newFavoriteMarket });
     } catch (error) {
-      console.log(error);
+      if (error instanceof AppError) {
+        Alert.alert("Novo estabelecimeto:", error.message);
+      } else {
+        console.log(error);
+      }
     }
   }
 
   //DELETE
   async function HandleDeleteFavorite(remove: string) {
-
     await marketDelete(remove);
-    
+
     setNewFavoriteMarketList((prevList) =>
       prevList.filter((oldList) => oldList != remove)
     );
-
-    
   }
 
   //RECUPERANDO LISTA STORAGE
@@ -52,6 +60,10 @@ export function NewShoppingList() {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function handleFavMarketOpen(newFavoriteMarket: string) {
+    navigation.navigate("shoppingList", { newFavoriteMarket });
   }
 
   useFocusEffect(
@@ -92,6 +104,7 @@ export function NewShoppingList() {
             onRemove={() => {
               HandleDeleteFavorite(item);
             }}
+            onPress={() => handleFavMarketOpen(item)}
           />
         )}
         ListFooterComponentStyle={{ marginBottom: 12 }}
