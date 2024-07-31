@@ -33,6 +33,7 @@ export function NewShoppingList() {
 
       await marketCreate(newFavoriteMarket);
       navigation.navigate("shoppingList", { newFavoriteMarket });
+
     } catch (error) {
       if (error instanceof AppError) {
         Alert.alert("Novo estabelecimeto:", error.message);
@@ -62,9 +63,10 @@ export function NewShoppingList() {
     }
   }
 
-  function handleFavMarketOpen(newFavoriteMarket: string) {
-    navigation.navigate("shoppingList", { newFavoriteMarket });
+  function handleFavMarketOpen(newFavoriteMarket: string){
+    navigation.navigate('shoppingList', {newFavoriteMarket} )
   }
+
 
   useFocusEffect(
     useCallback(() => {
@@ -101,10 +103,8 @@ export function NewShoppingList() {
           <CardNewShoppinList
             key={item}
             title={item}
-            onRemove={() => {
-              HandleDeleteFavorite(item);
-            }}
-            onPress={() => handleFavMarketOpen(item)}
+            onRemove={() => {HandleDeleteFavorite(item);}}
+            onPress={()=> handleFavMarketOpen(item)}
           />
         )}
         ListFooterComponentStyle={{ marginBottom: 12 }}
