@@ -66,16 +66,15 @@
 
 # Design da Interface
 
-<p><strong>2. Design da Interface
+<p><strong>1. Design da Interface
 Simplicidade e Acessibilidade
 Ícones grandes e intuitivos
 Fontes grandes e legíveis
 Navegação fácil e direta</strong></p>
 
-<p><strong>3. Desenvolvimento
-Estrutura do Projeto
-React Native
-Utilizaremos React Native para desenvolvimento multi-plataforma (iOS e Android)</strong></p>
+<p><strong>2. Desenvolvimento</br>
+Estrutura do Projeto:</br>
+React Native para desenvolvimento multi-plataforma (iOS e Android)</strong></p>
 
 # Dependencias
 
