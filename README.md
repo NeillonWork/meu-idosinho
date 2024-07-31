@@ -1,4 +1,4 @@
-<p align="center"> React-Native teams... em desenvolvimento</p>
+<p align="center"> React-Native Meu Idosinho em desenvolvimento</p>
 
 <p align="center">
 <a href="#imagens">Imagens </a> -
