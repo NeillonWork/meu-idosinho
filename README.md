@@ -36,10 +36,12 @@
 <p><strong>Funcionalidades Principais</strong></p>
 
 <strong>#Lista de Compras</strong></br>
+- [] Refatorar nome das constantes para facilitar na manutenção 
 - [x] Criar Screen</br>
 - [x] Adicionar itens</br>
 - [x] Marcar itens como comprados</br>
 - [x] Remover itens</br>
+- [] Remover itens - REFATORAR apos nova função de vincular mercado a lista de compras</br>
 - [] Indicadores da Lista dinamicos</br>
 - [] Componentizar - Idicadores da Lista dinamicos(...analisar se necessario)</br></br>
 - [] Refatorar buttons</br>
