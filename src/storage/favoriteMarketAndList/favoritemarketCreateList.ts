@@ -39,7 +39,8 @@ export async function favoritemarketCreateList(
       storage
     );
 
-    //   await AsyncStorage.clear();
+   //LImpar storage teste 
+  //  await AsyncStorage.clear();
   } catch (error) {
     throw error;
   }

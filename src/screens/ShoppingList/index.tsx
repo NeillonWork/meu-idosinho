@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Alert, FlatList } from "react-native";
+import { Alert, FlatList, Text } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
 import { Header } from "@components/Header";
@@ -23,6 +23,8 @@ import { favoritemarketCreateList } from "@storage/favoriteMarketAndList/favorit
 import { AppError } from "src/utils/AppError";
 import { BuysOnFavoriteMarketDTO } from "@storage/favoriteMarketAndList/BuysOnFavoriteMarket";
 import { favoriteGetbyMarketAndBuys } from "@storage/favoriteMarketAndList/favoriteGetbyMarketAndBuys";
+import { marketGetAll } from "@storage/favoriteMarket/marketGetAll";
+import { CardNewShoppinList } from "@components/CardNewShoppinList";
 
 type RouterParams = {
   newFavoriteMarket: string;
@@ -36,7 +38,9 @@ export function ShoppingList() {
   const [listBuy, setListBuy] = useState<BuysOnFavoriteMarketDTO[]>([]);
 
   const [itemChecked, setItemChecked] = useState<Record<string, boolean>>({});
-  const [sName, setSName] = useState("Compras 01");
+  const [sName, setSName] = useState(newFavoriteMarket);
+
+  const [favoriteMarketList, setFavoriteMarketList] = useState<string[]>([]);
 
   // Função para contar quantos itens estão marcados
   const countCheckedItems = () => {
@@ -45,7 +49,6 @@ export function ShoppingList() {
 
   // ADD ITEM
   async function handleAddItem() {
-
     if (addItem.trim().length === 0) {
       Alert.alert("Cadastro", `ATENÇÃO: Item em branco`);
       return;
@@ -58,6 +61,8 @@ export function ShoppingList() {
 
     try {
       await favoritemarketCreateList(addItemBuy, newFavoriteMarket);
+
+      fetchBuysByMarket();
     } catch (error) {
       if (error instanceof AppError) {
         Alert.alert("Cadastro", error.message);
@@ -65,15 +70,17 @@ export function ShoppingList() {
     }
   }
   //DELETE ITEM
-  function handlDeleteItem(remove: string) {
+  async function handlDeleteItem(remove: string) {
     if (itemChecked[remove] === true) {
       Alert.alert("Deletar", "Item marcado não pode ser deletado!");
       return;
     }
-
-    setListBuy((prevList) => prevList.filter((oldList) => oldList !== remove));
+    try {
+    } catch (error) {
+      console.log(error);
+    }
+    // setListBuy((prevList) => prevList.filter((oldList) => oldList != remove));
   }
-
   //CHECKEDITEM
   function handleCheckedItem(checked: string) {
     setItemChecked((prevList) => ({
@@ -94,11 +101,21 @@ export function ShoppingList() {
     }
   }
 
+  //Carregar lista de mercados favoritados
+  async function fetchFavoriteMarkets() {
+    const data = await marketGetAll();
+
+    setFavoriteMarketList(data);
+
+    console.log(data);
+  }
+
   useEffect(() => {
-    fetchBuysByMarket()
+    fetchBuysByMarket();
+    fetchFavoriteMarkets();
   }, [sName]);
 
-  console.log(JSON.stringify(listBuy))
+  console.log(JSON.stringify(listBuy));
 
   return (
     <Container>
@@ -125,7 +142,6 @@ export function ShoppingList() {
       </Form>
 
       {/*INICIO - COMPONENTIZAR ESTES INDICADORES*/}
-
       <FaveMarketCard>
         <FaveMarketTitle>
           Favoritos:
