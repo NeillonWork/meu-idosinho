@@ -1,1 +1,4 @@
-export const MARKETFAV_COLLECTION = "@meu-idosinho:newMarket";
+const MARKETFAV_COLLECTION = "@meu-idosinho:newMarket";
+const MARKETFAV_COLLECTIONBUY = "@meu-idosinho:newBuy";
+
+export {MARKETFAV_COLLECTION, MARKETFAV_COLLECTIONBUY}

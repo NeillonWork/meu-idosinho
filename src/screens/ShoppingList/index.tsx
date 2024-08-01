@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Alert, FlatList, Text } from "react-native";
+import { useEffect, useState } from "react";
+import { Alert, FlatList } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
 import { Header } from "@components/Header";
@@ -19,6 +19,10 @@ import {
   FaveMarketTitle,
   Form,
 } from "./styles";
+import { favoritemarketCreateList } from "@storage/favoriteMarketAndList/favoritemarketCreateList";
+import { AppError } from "src/utils/AppError";
+import { BuysOnFavoriteMarketDTO } from "@storage/favoriteMarketAndList/BuysOnFavoriteMarket";
+import { favoriteGetbyMarketAndBuys } from "@storage/favoriteMarketAndList/favoriteGetbyMarketAndBuys";
 
 type RouterParams = {
   newFavoriteMarket: string;
@@ -29,8 +33,10 @@ export function ShoppingList() {
   const { newFavoriteMarket } = route.params as RouterParams;
 
   const [addItem, setAddItem] = useState("");
-  const [listBuy, setListBuy] = useState<string[]>([]);
+  const [listBuy, setListBuy] = useState<BuysOnFavoriteMarketDTO[]>([]);
+
   const [itemChecked, setItemChecked] = useState<Record<string, boolean>>({});
+  const [sName, setSName] = useState("Compras 01");
 
   // Função para contar quantos itens estão marcados
   const countCheckedItems = () => {
@@ -38,14 +44,25 @@ export function ShoppingList() {
   };
 
   // ADD ITEM
-  function handleAddItem() {
-    if (listBuy.includes(addItem) || addItem === "") {
-      Alert.alert("Cadastro", `ATENÇÃO: Item em branco, ou já cadastrado!`);
+  async function handleAddItem() {
+
+    if (addItem.trim().length === 0) {
+      Alert.alert("Cadastro", `ATENÇÃO: Item em branco`);
       return;
     }
 
-    setListBuy((prevList) => [...prevList, addItem]);
-    setAddItem("");
+    const addItemBuy = {
+      buydescription: addItem,
+      shopping: sName,
+    };
+
+    try {
+      await favoritemarketCreateList(addItemBuy, newFavoriteMarket);
+    } catch (error) {
+      if (error instanceof AppError) {
+        Alert.alert("Cadastro", error.message);
+      }
+    }
   }
   //DELETE ITEM
   function handlDeleteItem(remove: string) {
@@ -64,6 +81,24 @@ export function ShoppingList() {
       [checked]: !prevList[checked],
     }));
   }
+
+  //Carregar lista de compras or Mercado
+  async function fetchBuysByMarket() {
+    try {
+      const buys = await favoriteGetbyMarketAndBuys(newFavoriteMarket, sName);
+
+      console.log(`Fetched buys: ${JSON.stringify(buys)}`);
+      setListBuy(buys);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchBuysByMarket()
+  }, [sName]);
+
+  console.log(JSON.stringify(listBuy))
 
   return (
     <Container>
@@ -123,14 +158,14 @@ export function ShoppingList() {
 
       <FlatList
         data={listBuy}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => item.buydescription}
         renderItem={({ item }) => (
           <CardShoppinList
-            key={item}
-            title={item}
-            checkItem={() => handleCheckedItem(item)}
-            onRemove={() => handlDeleteItem(item)}
-            checkedOn={itemChecked[item]}
+            key={item.buydescription}
+            title={item.buydescription}
+            checkItem={() => handleCheckedItem(item.buydescription)}
+            onRemove={() => handlDeleteItem(item.buydescription)}
+            checkedOn={itemChecked[item.buydescription]}
           />
         )}
         ListEmptyComponent={
