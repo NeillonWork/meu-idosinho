@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Alert, FlatList, TextInput } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import { Header } from "@components/Header";
 import { Highlights } from "@components/Highlights";
@@ -24,6 +24,9 @@ import { AppError } from "src/utils/AppError";
 import { BuysOnFavoriteMarketDTO } from "@storage/favoriteMarketAndList/BuysOnFavoriteMarket";
 import { favoriteGetbyMarketAndBuys } from "@storage/favoriteMarketAndList/favoriteGetbyMarketAndBuys";
 import { marketGetAll } from "@storage/favoriteMarket/marketGetAll";
+import { Button } from "@components/Buttons";
+import { favoriteDeleteMarketBuys } from "@storage/favoriteMarketAndList/favoriteDeleteMarketBuys";
+import { favoriteMarketDeleteAll } from "@storage/favoriteMarketAndList/favoriteMarketDeleteAll";
 
 type RouterParams = {
   newFavoriteMarket: string;
@@ -33,6 +36,7 @@ export function ShoppingList() {
   const route = useRoute();
   const { newFavoriteMarket } = route.params as RouterParams;
   const [addItem, setAddItem] = useState("");
+  const navigator = useNavigation();
 
   const [listBuy, setListBuy] = useState<BuysOnFavoriteMarketDTO[]>([]);
   const [itemChecked, setItemChecked] = useState<Record<string, boolean>>({});
@@ -59,14 +63,11 @@ export function ShoppingList() {
     };
 
     try {
-
-      
       await favoritemarketCreateList(addItemBuy, newFavoriteMarket);
-      addItemInputRef.current?.blur()
+      addItemInputRef.current?.blur();
 
-      setAddItem("")
+      setAddItem("");
       fetchBuysByMarket();
-
     } catch (error) {
       if (error instanceof AppError) {
         Alert.alert("Cadastro", error.message);
@@ -74,17 +75,41 @@ export function ShoppingList() {
     }
   }
   //=> DELETE ITEM
-  async function handlDeleteItem(remove: string) {
-    if (itemChecked[remove] === true) {
+  async function handlDeleteItem(removeBuy: string) {
+    if (itemChecked[removeBuy] === true) {
       Alert.alert("Deletar", "Item marcado não pode ser deletado!");
       return;
     }
     try {
+      await favoriteDeleteMarketBuys(removeBuy, newFavoriteMarket);
+
+      fetchBuysByMarket();
     } catch (error) {
       console.log(error);
     }
-    // setListBuy((prevList) => prevList.filter((oldList) => oldList != remove));
   }
+  //=> Decisão deletar tudo (Y/N)
+  async function handleRemoveAllMarktAndBuy() {
+    Alert.alert(
+      "Remover",
+      "Deseja remover este mercado e todo historico de compras vinculado a ele ?",
+      [
+        { text: "Não", style: "cancel" },
+        { text: "Sim", onPress: () => removeAll() },
+      ]
+    );
+  }
+  //=> DELETA MERCADO E TODOS OS ITENS VINCULADOS
+  async function removeAll() {
+    try {
+      await favoriteMarketDeleteAll(sName);
+      navigator.navigate("home");
+    } catch (error) {
+      Alert.alert("Remover", "Ocorreu um erro ao deletar este mercado");
+      console.log(error);
+    }
+  }
+
   //=> CHECKEDITEM
   function handleCheckedItem(checked: string) {
     setItemChecked((prevList) => ({
@@ -201,6 +226,13 @@ export function ShoppingList() {
           { paddingBottom: 100 },
           listBuy.length === 0 && { flex: 1 },
         ]}
+      />
+
+      <Button
+        style={{ marginTop: 12 }}
+        title="Deletar Mercado"
+        type="DELETE"
+        onPress={handleRemoveAllMarktAndBuy}
       />
     </Container>
   );

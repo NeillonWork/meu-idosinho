@@ -41,7 +41,7 @@
 - [x] Adicionar itens</br>
 - [x] Marcar itens como comprados</br>
 - [x] Remover itens</br>
-- [] Remover itens - REFATORAR apos nova função de vincular mercado a lista de compras</br>
+- [x] Remover itens - REFATORAR apos nova função de vincular mercado a lista de compras</br>
 - [] Indicadores da Lista dinamicos</br>
 - [] Componentizar - Idicadores da Lista dinamicos(...analisar se necessario)</br></br>
 - [] Refatorar buttons</br>
@@ -52,7 +52,7 @@
 - [x] Lista de Mercados favoritos</br>
 - [x] Lista de Mercados favoritos - Adicionar ao storage </br>
 - [x] Lista de Mercados favoritos - Remover ao storage </br>
-- [] Salvar e vincular MarketFavorito com a lista criada em `Lista de Compras`</br></br>
+- [x] Salvar e vincular MarketFavorito com a lista criada em `Lista de Compras`</br></br>
 
 <strong>#Lembretes de Medicamentos</strong></br>
 - [x] Criar Screen</br>

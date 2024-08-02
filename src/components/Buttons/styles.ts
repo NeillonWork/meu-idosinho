@@ -19,7 +19,7 @@ export const Container = styled(TouchableOpacity)<Props>`
   align-items: center;
 
   background-color: ${({ theme, type }) =>
-    type === "CONFIRM" ? theme.COLORS.GREEN_700 : theme.COLORS.GRAY_500};
+    type === "CONFIRM" ? theme.COLORS.GREEN_700 : theme.COLORS.RED};
 `;
 
 export const ButtomTitle = styled.Text`

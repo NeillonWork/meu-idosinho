@@ -13,6 +13,7 @@ import { Input } from "@components/Input";
 import { Container } from "./styles";
 import { marketDelete } from "@storage/favoriteMarket/marketDelete";
 import { AppError } from "src/utils/AppError";
+import { favoriteMarketDeleteAll } from "@storage/favoriteMarketAndList/favoriteMarketDeleteAll";
 
 export function NewShoppingList() {
   const navigation = useNavigation();
@@ -33,7 +34,6 @@ export function NewShoppingList() {
 
       await marketCreate(newFavoriteMarket);
       navigation.navigate("shoppingList", { newFavoriteMarket });
-
     } catch (error) {
       if (error instanceof AppError) {
         Alert.alert("Novo estabelecimeto:", error.message);
@@ -43,6 +43,7 @@ export function NewShoppingList() {
     }
   }
 
+  /*
   //DELETE
   async function HandleDeleteFavorite(remove: string) {
     await marketDelete(remove);
@@ -50,6 +51,30 @@ export function NewShoppingList() {
     setNewFavoriteMarketList((prevList) =>
       prevList.filter((oldList) => oldList != remove)
     );
+  }
+ */
+
+  //=> Decisão deletar tudo (Y/N)
+  async function HandleDeleteFavorite(removeMarketAll: string) {
+    Alert.alert(
+      "Remover",
+      "Deseja remover este mercado e todo historico de compras vinculado a ele ?",
+      [
+        { text: "Não", style: "cancel" },
+        { text: "Sim", onPress: () => removeAll(removeMarketAll) },
+      ]
+    );
+  }
+  //=> DELETA MERCADO E TODOS OS ITENS VINCULADOS
+  async function removeAll(removeMarketAll: string) {
+    try {
+      await favoriteMarketDeleteAll(removeMarketAll);
+
+      fetchMarketFavorite();
+    } catch (error) {
+      Alert.alert("Remover", "Ocorreu um erro ao deletar este mercado");
+      console.log(error);
+    }
   }
 
   //RECUPERANDO LISTA STORAGE
@@ -63,10 +88,9 @@ export function NewShoppingList() {
     }
   }
 
-  function handleFavMarketOpen(newFavoriteMarket: string){
-    navigation.navigate('shoppingList', {newFavoriteMarket} )
+  function handleFavMarketOpen(newFavoriteMarket: string) {
+    navigation.navigate("shoppingList", { newFavoriteMarket });
   }
-
 
   useFocusEffect(
     useCallback(() => {
@@ -103,8 +127,10 @@ export function NewShoppingList() {
           <CardNewShoppinList
             key={item}
             title={item}
-            onRemove={() => {HandleDeleteFavorite(item);}}
-            onPress={()=> handleFavMarketOpen(item)}
+            onRemove={() => {
+              HandleDeleteFavorite(item);
+            }}
+            onPress={() => handleFavMarketOpen(item)}
           />
         )}
         ListFooterComponentStyle={{ marginBottom: 12 }}
