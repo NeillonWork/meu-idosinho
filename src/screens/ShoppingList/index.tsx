@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Alert, FlatList, Text } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { Alert, FlatList, TextInput } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
 import { Header } from "@components/Header";
@@ -24,7 +24,6 @@ import { AppError } from "src/utils/AppError";
 import { BuysOnFavoriteMarketDTO } from "@storage/favoriteMarketAndList/BuysOnFavoriteMarket";
 import { favoriteGetbyMarketAndBuys } from "@storage/favoriteMarketAndList/favoriteGetbyMarketAndBuys";
 import { marketGetAll } from "@storage/favoriteMarket/marketGetAll";
-import { CardNewShoppinList } from "@components/CardNewShoppinList";
 
 type RouterParams = {
   newFavoriteMarket: string;
@@ -33,21 +32,21 @@ type RouterParams = {
 export function ShoppingList() {
   const route = useRoute();
   const { newFavoriteMarket } = route.params as RouterParams;
-
   const [addItem, setAddItem] = useState("");
-  const [listBuy, setListBuy] = useState<BuysOnFavoriteMarketDTO[]>([]);
 
+  const [listBuy, setListBuy] = useState<BuysOnFavoriteMarketDTO[]>([]);
   const [itemChecked, setItemChecked] = useState<Record<string, boolean>>({});
   const [sName, setSName] = useState(newFavoriteMarket);
-
   const [favoriteMarketList, setFavoriteMarketList] = useState<string[]>([]);
 
-  // Função para contar quantos itens estão marcados
+  const addItemInputRef = useRef<TextInput>(null);
+
+  //=> Função para contar quantos itens estão marcados
   const countCheckedItems = () => {
     return Object.values(itemChecked).filter((checked) => checked).length;
   };
 
-  // ADD ITEM
+  //=> ADD ITEM
   async function handleAddItem() {
     if (addItem.trim().length === 0) {
       Alert.alert("Cadastro", `ATENÇÃO: Item em branco`);
@@ -60,16 +59,21 @@ export function ShoppingList() {
     };
 
     try {
-      await favoritemarketCreateList(addItemBuy, newFavoriteMarket);
 
+      
+      await favoritemarketCreateList(addItemBuy, newFavoriteMarket);
+      addItemInputRef.current?.blur()
+
+      setAddItem("")
       fetchBuysByMarket();
+
     } catch (error) {
       if (error instanceof AppError) {
         Alert.alert("Cadastro", error.message);
       }
     }
   }
-  //DELETE ITEM
+  //=> DELETE ITEM
   async function handlDeleteItem(remove: string) {
     if (itemChecked[remove] === true) {
       Alert.alert("Deletar", "Item marcado não pode ser deletado!");
@@ -81,7 +85,7 @@ export function ShoppingList() {
     }
     // setListBuy((prevList) => prevList.filter((oldList) => oldList != remove));
   }
-  //CHECKEDITEM
+  //=> CHECKEDITEM
   function handleCheckedItem(checked: string) {
     setItemChecked((prevList) => ({
       ...prevList,
@@ -89,7 +93,7 @@ export function ShoppingList() {
     }));
   }
 
-  //Carregar lista de compras or Mercado
+  //=> Carregar lista de compras or Mercado
   async function fetchBuysByMarket() {
     try {
       const buys = await favoriteGetbyMarketAndBuys(newFavoriteMarket, sName);
@@ -101,7 +105,7 @@ export function ShoppingList() {
     }
   }
 
-  //Carregar lista de mercados favoritados
+  //=> Carregar lista de mercados favoritados
   async function fetchFavoriteMarkets() {
     const data = await marketGetAll();
 
@@ -126,11 +130,14 @@ export function ShoppingList() {
       />
       <Form>
         <Input
+          inputRef={addItemInputRef}
           title="Digite o item aqui"
           autoCorrect={false}
           style={{ marginEnd: 5 }}
           value={addItem}
           onChangeText={setAddItem}
+          onSubmitEditing={handleAddItem} //==>ok pelo teclado
+          returnKeyType="done" //=> recolher teclado
         />
         <ButtonActions
           options={
