@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 
-import { Container, Form } from "./styles";
+import { Container, DevIcon, Form, Section, Sobre } from "./styles";
 import { Header } from "@components/Header";
 import { Highlights } from "@components/Highlights";
 import { ButtonsHome } from "@components/ButtonsHome";
@@ -20,7 +20,7 @@ export function Home() {
       {/* Refatorar: melhorar logica para diminuir a quantidade de função anonima aberta*/}
       <Form>
         <ButtonIcon icon="shopping-cart" />
-        <ButtonsHome 
+        <ButtonsHome
           title="Lista de Compras"
           onPress={() => navigation.navigate("newshoppingList")}
         />
@@ -42,13 +42,16 @@ export function Home() {
         />
       </Form>
 
-      <Form>
-        <ButtonIcon icon="add" />
-        <ButtonsHome
-          title="Lista personalizada"
-          onPress={() => navigation.navigate("shoppingList")}
-        />
-      </Form>
+      <Section>
+        <DevIcon />
+        <Sobre>
+          Meu Idosinho é um aplicativo intuitivo e acessível, projetado para
+          ajudar idosos a gerenciar suas tarefas diárias com a assistência de um
+          smartphone.{'\n'}
+          {'\n'} -- VERSÃO ALPHA 1.0
+          {'\n'} -- DEV: Neillon A.Oliveira
+        </Sobre>
+      </Section>
     </Container>
   );
 }
