@@ -9,6 +9,11 @@
 <a href="#autor">Autor </a>
 </p>
 
+## Instalação
+
+Para testar o aplicativo, baixe o APK [aqui](https://github.com/NeillonWork/meu-idosinho/releases/tag/v1.0.0).
+
+
 # Imagens
 
 <p>
